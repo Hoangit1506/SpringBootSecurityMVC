@@ -1,0 +1,31 @@
+<!DOCTYPE HTML>
+ <html xmlns:th="http://www.thymeleaf.org"
+ xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity6">
+
+ <body>
+ <!-- this is footer::footer -->
+ <section th:fragment="footer">
+
+ <div class="container">
+ <div class="row">
+ <div class="col-sm-12 text-center">
+
+ <span sec:authorize="isAuthenticated()">
+ | Logged user: <span sec:authentication="name">
+ </span> | Roles: <span sec:authentication="principal.authorities"></span> |
+ <a th:href="@{/logout}">Sign Out</a>
+ </span>
+
+ <p class="text-center fs-6 ">
+ &copy; 2024, Vũ Duy Linh, vdlinh@ctu.edu.vn  </p>
+ 
+ </div>
+
+ </div>
+ </div>
+
+ <script th:src="@{/webjars/bootstrap/5.3.0/js/bootstrap.bundle.min.js}"></script>
+ </section>
+
+ </body>
+ </html>
