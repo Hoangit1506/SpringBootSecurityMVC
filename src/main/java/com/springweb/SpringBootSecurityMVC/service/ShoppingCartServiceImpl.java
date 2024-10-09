@@ -20,6 +20,7 @@ public class ShoppingCartServiceImpl implements ShoppingCartService{
 
 	@Autowired
 	private ProductRepository productRepository;
+	
 	private Map<Product, Integer> products = new HashMap<>();
 	
 	@Override

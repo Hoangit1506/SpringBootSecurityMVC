@@ -43,7 +43,7 @@ public class UserEntity {
 	@Column(name = "active", nullable = false)
 	private int active = 1;
 	
-	@ManyToMany(cascade = CascadeType.ALL)
+	@ManyToMany
 	@JoinTable(
 		name = "user_roles",
 		joinColumns = @JoinColumn(name = "user_id"),

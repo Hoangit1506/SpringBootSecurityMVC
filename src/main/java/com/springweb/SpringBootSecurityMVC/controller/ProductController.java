@@ -20,6 +20,7 @@ import com.springweb.SpringBootSecurityMVC.service.ProductService;
 public class ProductController {
 	@Autowired
 	private ProductService productService;
+	
 	private static final int INITIAL_PAGE = 0;
 	
 	@GetMapping(value= {"/products"})

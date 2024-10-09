@@ -53,7 +53,7 @@
 	        <select class="form-select selectpicker" multiple size="3" aria-label="size 2 select example" style="width:30%; display: inline" id="roles" required th:field="*{roles}">  
 	    	   <option value="" disabled>Choose one or more</option>    
 	            <option
-	                    th:each="role : ${T(com.springweb.model.Authority).values()}"
+	                    th:each="role : ${T(com.springweb.SpringBootSecurityMVC.model.Authority).values()}"
 	                    th:text="${role}"
 	                    th:value="${role}">
 	            </option>

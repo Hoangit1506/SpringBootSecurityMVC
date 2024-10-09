@@ -1,63 +1,70 @@
 <!DOCTYPE html>
 
-<html xmlns:th="http://www.thymeleaf.org" 
-xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity6">
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity6">
 
- <!--/* this is header::head> */-->
- <head th:fragment="head">
- <title th:attr="data-custom=#{thymeleaf.app.title}">Simple security shopping cart</title>
- <link rel="icon" type="image/png" href="../../images/html5_favicon.png"/> 
-<link th:rel="stylesheet" th:href="@{/webjars/bootstrap/5.3.0/css/bootstrap.min.css}" />
- <link th:rel="stylesheet" th:href="@{/webjars/font-awesome/6.4.0/css/all.css}" />
- <link rel="stylesheet" th:href="@{/css/main.css}" href="../../css/main.css" />
- </head>
+<!--/* this is header::head> */-->
 
- <body>
- <section th:fragment="navbar">
- <nav class="navbar navbar-expand-sm navbar-dark bg-dark py-4">
- <div class="container-fluid">
+<head th:fragment="head">
+	<title th:attr="data-custom=#{thymeleaf.app.title}">Simple security shopping cart</title>
+	<link rel="icon" type="image/png" href="../../images/html5_favicon.png" />
+	<link th:rel="stylesheet" th:href="@{/webjars/bootstrap/5.3.0/css/bootstrap.min.css}" />
+	<link th:rel="stylesheet" th:href="@{/webjars/font-awesome/6.4.0/css/all.css}" />
+	<link rel="stylesheet" th:href="@{/css/main.css}" href="../../static/css/main.css" />
+</head>
 
- <a class="navbar-brand" th:href="@{/}">
- <img src="../../images/online-shop-logo.png" alt="Avatar Logo"
- style="width:40px;" class="rounded-pill">
- </a>
+<body>
+	<section th:fragment="navbar">
+		<nav class="navbar navbar-expand-sm navbar-dark bg-dark py-4">
+			<div class="container-fluid">
 
- <button class="navbar-toggler" type="button" data-bs-toggle="collapse" 
-data-bs-target="#mynavbar"><span class="navbar-toggler-icon"></span></button>
- 
-<div class="collapse navbar-collapse" id="mynavbar">
- <ul class="navbar-nav me-auto">
- <li class="nav-item">
- <a class="nav-link" th:href="@{/products}">Product list</a>
- </li>
- </ul>
+				<a class="navbar-brand" th:href="@{/}">
+					<img src="../../images/online-shop-logo.png" alt="Avatar Logo" style="width:40px;"
+						class="rounded-pill">
+				</a>
 
- <div class="d-flex"></div>
-    <!-- show shoppingCart only if user is authenticated -->
-    <ul class="navbar-nav me-auto" sec:authorize="isAuthenticated()">
-      <li class="nav-item active">
-  <a class="nav-link" th:href="@{/shoppingCart}">Shopping Cart</a></li></ul>
-   
-   <!-- show registration only if user is not yet authenticated -->
-   <ul class="navbar-nav me-auto" sec:authorize="!isAuthenticated()">
-     <li class="nav-item active">
-        <a class="nav-link" th:href="@{/registration}">Registration</a></li></ul>
+				<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mynavbar"><span
+						class="navbar-toggler-icon"></span></button>
 
-   <!-- show login only if user is not yet authenticated -->
-   <ul class="navbar-nav me-auto" sec:authorize="!isAuthenticated()">
-     <li class="nav-item">
-         <a class="nav-link active" th:href="@{/login}">Login</a></li></ul>
-         
-   <!-- show sign out only if user is authenticated -->
-   <ul class="navbar-nav me-auto" sec:authorize="isAuthenticated()">
-     <li class="nav-item">
-  <a class="nav-link active" th:href="@{/logout}">Sign Out</a>
-     </li>
-   </ul>
- </div>
-       </div>
-      </div>
-    </nav>
-   </section>
- </body>
- </html>
+				<div class="collapse navbar-collapse" id="mynavbar">
+					<ul class="navbar-nav me-auto">
+						<li class="nav-item">
+							<a class="nav-link" th:href="@{/products}">Product list</a>
+						</li>
+					</ul>
+
+					<div class="d-flex"></div>
+					<!-- show shoppingCart only if user is authenticated -->
+					<ul class="navbar-nav me-auto" sec:authorize="isAuthenticated()">
+						<li class="nav-item active">
+							<a class="nav-link" th:href="@{/shoppingCart}">Shopping Cart</a>
+						</li>
+					</ul>
+
+					<!-- show registration only if user is not yet authenticated -->
+					<ul class="navbar-nav me-auto" sec:authorize="!isAuthenticated()">
+						<li class="nav-item active">
+							<a class="nav-link" th:href="@{/registration}">Registration</a>
+						</li>
+					</ul>
+
+					<!-- show login only if user is not yet authenticated -->
+					<ul class="navbar-nav me-auto" sec:authorize="!isAuthenticated()">
+						<li class="nav-item">
+							<a class="nav-link active" th:href="@{/login}">Login</a>
+						</li>
+					</ul>
+
+					<!-- show sign out only if user is authenticated -->
+					<ul class="navbar-nav me-auto" sec:authorize="isAuthenticated()">
+						<li class="nav-item">
+							<a class="nav-link active" th:href="@{/logout}">Sign Out</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+			</div>
+		</nav>
+	</section>
+</body>
+
+</html>

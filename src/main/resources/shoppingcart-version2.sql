@@ -6,7 +6,7 @@
 
 DROP TABLE IF EXISTS `products`;
 
-CREATE TABLE `products` (
+CREATE TABLE IF NOT EXISTS `products` (
   `product_id` bigint NOT NULL AUTO_INCREMENT,
   `description` varchar(255) DEFAULT NULL,
   `name` varchar(255) NOT NULL,
@@ -26,14 +26,14 @@ INSERT INTO `products` VALUES (1,'Pears baby soap for Kids','Soap',35.75,100),(2
 --
 
 
-CREATE TABLE `roles` (
+CREATE TABLE IF NOT EXISTS `roles` (
   `role_id` bigint NOT NULL,
   `role` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`role_id`),
   UNIQUE KEY `UK_g50w4r0ru3g9uf6i6fr4kpro8` (`role`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
-INSERT INTO `roles` (`role_id`, `role`) VALUES (2, 'ADMIN'), (4, 'GUEST'), (1, 'OWNER'), (3, 'SALES');
+INSERT INTO `roles` (`role_id`, `role`) VALUES (2, 'ADMIN'), (4, 'GUEST'), (1, 'OWNER'), (3, 'SALES') ON DUPLICATE KEY UPDATE `role` = VALUES(`role`);
 
 -- INSERT INTO `roles` (`role_id`, `role`) VALUES (1, 'ROLE_OWNER'),(2, 'ROLE_ADMIN'), (3, 'ROLE_SALES'), (4, 'ROLE_GUEST');
 
